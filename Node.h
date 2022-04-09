@@ -1,0 +1,32 @@
+//	Node.h
+//  Created by Frank M. Carrano and Timothy M. Henry.
+//	Updated by Duc Ta
+//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+
+#pragma once
+
+//
+//
+// PLEASE DO NOT CHANGE THIS FILE
+//
+//
+
+template <typename ItemType>
+class Node
+{
+public:
+    // constructors
+    Node();
+    Node(const ItemType &);
+    Node(const ItemType &, Node<ItemType> *);
+    // mutator methods
+    void setItem(const ItemType &);
+    void setNext(Node<ItemType> *);
+    // accessor methods
+    ItemType getItem() const;
+    Node<ItemType> *getNext() const;
+
+private:
+    ItemType item{}; // A data item
+    Node<ItemType> *next{nullptr}; // Pointer to next node
+};

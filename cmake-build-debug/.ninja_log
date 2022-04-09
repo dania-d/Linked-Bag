@@ -1,0 +1,12 @@
+# ninja log v5
+0	570	1649312232959619041	CMakeFiles/LinkedBag_Assignment4.dir/main.cpp.o	cc9535c352650fb2
+572	629	1649312233021152730	LinkedBag_Assignment4	52a4e76efa3c0076
+1	39	1649312802554031860	CMakeFiles/LinkedBag_Assignment4.dir/Node.cpp.o	6460f73410f1307e
+1	313	1649312802825926546	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBag.cpp.o	d10cefa660acd65b
+1	317	1649312802830300014	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBag340.cpp.o	36bc833a1588a08a
+1	615	1649312803128254356	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBagClient340.cpp.o	5437cec29474cc77
+1	918	1649397067350410422	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBagClient340.cpp.o	5437cec29474cc77
+1	562	1649397111030407227	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBagClient340.cpp.o	5437cec29474cc77
+2	273	1649398899515559594	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBag340.cpp.o	36bc833a1588a08a
+1	581	1649398899821899591	CMakeFiles/LinkedBag_Assignment4.dir/LinkedBagClient340.cpp.o	5437cec29474cc77
+581	665	1649398899909591882	LinkedBag_Assignment4	983259febcd236cc
