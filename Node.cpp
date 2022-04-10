@@ -14,10 +14,10 @@
 template<typename ItemType>
 // default constructor
 Node<ItemType>::Node() : item(), next(nullptr) {}
-
+// 2nd constructor
 template<typename ItemType>
 Node<ItemType>::Node(const ItemType& anItem) : item(anItem), next(nullptr) {}
-
+// 3rd constructor
 template<typename ItemType>
 Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) :
         item(anItem), next(nextNodePtr) {}

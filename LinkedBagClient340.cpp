@@ -17,7 +17,7 @@ int main() {
 
     // 1. Create a bag and add initial nodes
     cout << "--->>>>> Test 1 --->>>>>" << endl;
-    unique_ptr<LinkedBag<string>> bag { make_unique <LinkedBag<string>>() };
+    unique_ptr<LinkedBag<string>> bag { make_unique <LinkedBag<string>>() };    // default constructor? bag is a pointer
 
     // A small vector of small objects to test the bag
     vector<string> items { "#-END", "5-FIVE", "4-FOUR", "4-FOUR", "3-THREE", "2-TWO", "1-ONE", "0-ZERO", "#-BEGIN" };
@@ -35,7 +35,7 @@ int main() {
      // 2. Remove the second node
      cout << "\n--->>>>> Test 2 --->>>>>";
      cout << "\n !removeSecondNode340()... ";
-     bag->removeSecondNode340();
+     bag->removeSecondNode340();    // the arrow operator dereferences pointer 'bag', then calls removeSecond()
      cout << "\n !removeSecondNode340()... ";
      bag->removeSecondNode340();
      displayBag(bag);

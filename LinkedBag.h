@@ -32,7 +32,7 @@ private:
 /*----------------------------------------------------------------------*/
 
 public:
-    LinkedBag();
+    LinkedBag();    // default constructor
     LinkedBag(const LinkedBag<ItemType>&); // copy constructor
     virtual ~LinkedBag(); // destructor should be virtual
     int getCurrentSize() const;
