@@ -20,7 +20,6 @@ bool LinkedBag<ItemType>::removeSecondNode340() // function template definition
         ItemType i = tempPtr->getItem();    // get data item of the 2nd node
         return remove(i);                   // call remove and pass in data item
     }
-
 }
 
 template<typename ItemType>
@@ -93,7 +92,7 @@ int LinkedBag<ItemType>::getFrequencyOf340Recursive(const ItemType &item) const 
 
 template<typename ItemType>
 int LinkedBag<ItemType>::getFrequencyOf340RecursiveHelper(Node<ItemType> *ptr, const ItemType &ref) const {
-    if (ptr == nullptr) {
+    if (ptr == nullptr) {   // reached the end of the chain
         return 0;
     } else if (ref == ptr->getItem()) {
         return 1 + getFrequencyOf340RecursiveHelper(ptr->getNext(), ref);
@@ -106,19 +105,15 @@ template<typename ItemType>
 int LinkedBag<ItemType>::getFrequencyOf340RecursiveNoHelper(const ItemType &ref) const {
     static Node<ItemType> *curPtr = headPtr;
 
-//    if(ref == curPtr->getItem()){
-//        return 1 + getFrequencyOf340RecursiveNoHelper(ref);
-//    }
-    if (curPtr != nullptr) {
-
+    if (curPtr != nullptr) {    // we haven't reached the end
         if (ref == curPtr->getItem()) {
-            return getFrequencyOf340RecursiveNoHelper(ref) + 1;
+            return getFrequencyOf340RecursiveNoHelper(ref) + 1; // recursive call
         }
-        curPtr = curPtr->getNext();
+        curPtr = curPtr->getNext(); // advance curPtr to next node
     }
 
     if (curPtr == nullptr) {
-        curPtr = headPtr;
+        curPtr = headPtr;   // point back to the head
     }
 
     return 0;
