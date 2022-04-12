@@ -8,6 +8,7 @@
 */
 
 #include "LinkedBag.h"
+#include <iostream>
 
 template<typename ItemType>
 // template parameter declaration
@@ -71,24 +72,23 @@ int LinkedBag<ItemType>::getCurrentSize340RecursiveHelper(Node<ItemType> *ptr) c
 
 template<typename ItemType>
 int LinkedBag<ItemType>::getCurrentSize340RecursiveNoHelper() const {
-    Node<ItemType> *currentPtr = headPtr;
+    static Node<ItemType> *curPtr = headPtr;    // static : its position stays consistent with each recursive call
+    static int counter = 0; // static : acts like a global variable (doesn't get re-initialized with every recursive call)
 
-//    if(currentPtr == nullptr){
-//        return 0;
-//    } else {
-//        return 1 + getCurrentSize340RecursiveNoHelper();
-//    }
-    return 0;
+    if (curPtr == nullptr) {  // base case
+        return counter;
+    } else {
+        curPtr = curPtr->getNext(); // iteration
+        counter++;
+        return getCurrentSize340RecursiveNoHelper();    // recursive call
+    }
 
 }
 
 template<typename ItemType>
 int LinkedBag<ItemType>::getFrequencyOf340Recursive(const ItemType &item) const {
-
     Node<ItemType> *curPtr = headPtr;
-
     return getFrequencyOf340RecursiveHelper(curPtr, item);
-    //return 0;
 }
 
 template<typename ItemType>
@@ -100,18 +100,47 @@ int LinkedBag<ItemType>::getFrequencyOf340RecursiveHelper(Node<ItemType> *ptr, c
     } else {
         return getFrequencyOf340RecursiveHelper(ptr->getNext(), ref);
     }
-
 }
 
 template<typename ItemType>
-int LinkedBag<ItemType>::getFrequencyOf340RecursiveNoHelper(const ItemType &) const {
+int LinkedBag<ItemType>::getFrequencyOf340RecursiveNoHelper(const ItemType &ref) const {
+    static Node<ItemType> *curPtr = headPtr;
+
+//    if(ref == curPtr->getItem()){
+//        return 1 + getFrequencyOf340RecursiveNoHelper(ref);
+//    }
+    if (curPtr != nullptr) {
+
+        if (ref == curPtr->getItem()) {
+            return getFrequencyOf340RecursiveNoHelper(ref) + 1;
+        }
+        curPtr = curPtr->getNext();
+    }
+
+    if (curPtr == nullptr) {
+        curPtr = headPtr;
+    }
+
     return 0;
 }
 
 template<typename ItemType>
 ItemType LinkedBag<ItemType>::removeRandom340() {
+    if (itemCount > 0) {
+        srand(time(NULL)); // initialize random seed
+        int n = rand() % itemCount + 1; // generate random number between 0 and itemCount
 
-    return nullptr;
+        int count = 1;
+        Node<ItemType>* curPtr = headPtr;
+        while (count < (n-1)) {
+            count++;
+            curPtr = curPtr->getNext(); // advance the pointer to the next node
+        }
+        ItemType i = curPtr->getItem();    // get data item of the random node
+        remove(i);                   // call remove and pass in data item
+        return i;
+    }
+
 }
 
 

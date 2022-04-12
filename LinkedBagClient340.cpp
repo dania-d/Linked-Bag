@@ -106,19 +106,19 @@ int main() {
      displayBag(bag);
 
      // 9. Remove a random node
-//     cout << "\n--->>>>> Test 9 --->>>>>";
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     displayBag(bag);
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     displayBag(bag);
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     displayBag(bag);
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
-//     displayBag(bag);
+     cout << "\n--->>>>> Test 9 --->>>>>";
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     displayBag(bag);
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     displayBag(bag);
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     displayBag(bag);
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     cout << "\n !removeRandom340() ---> " << bag->removeRandom340();
+     displayBag(bag);
 
     cout << endl;
     return 0;
