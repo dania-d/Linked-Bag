@@ -35,11 +35,11 @@ LinkedBag<ItemType>::LinkedBag(const LinkedBag<ItemType>& aBag) {
 
         while (origChainPtr != nullptr)
         {
-            ItemType nextItem = origChainPtr->getItem();
-            Node<ItemType>* newNodePtr = new Node<ItemType>(nextItem);
-            newChainPtr->setNext(newNodePtr);
-            newChainPtr = newChainPtr->getNext();
-            origChainPtr = origChainPtr->getNext();
+//            ItemType nextItem = origChainPtr->getItem();
+//            Node<ItemType>* newNodePtr = new Node<ItemType>(nextItem);
+//            newChainPtr->setNext(newNodePtr);
+//            newChainPtr = newChainPtr->getNext();
+//            origChainPtr = origChainPtr->getNext();
         }
 
         newChainPtr->setNext(nullptr);
