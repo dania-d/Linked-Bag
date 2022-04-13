@@ -103,20 +103,18 @@ int LinkedBag<ItemType>::getFrequencyOf340RecursiveHelper(Node<ItemType> *ptr, c
 
 template<typename ItemType>
 int LinkedBag<ItemType>::getFrequencyOf340RecursiveNoHelper(const ItemType &ref) const {
+
     static Node<ItemType> *curPtr = headPtr;
-
-    if (curPtr != nullptr) {    // we haven't reached the end
-        if (ref == curPtr->getItem()) {
-            return getFrequencyOf340RecursiveNoHelper(ref) + 1; // recursive call
-        }
-        curPtr = curPtr->getNext(); // advance curPtr to next node
+    if (curPtr == nullptr) {                 // base case
+        curPtr = headPtr;                    // point back to start of chain
+        return 0;
+    } else if (ref == curPtr->getItem()) {   // item matches
+        curPtr = curPtr->getNext();          // advance curPtr to next node
+        return getFrequencyOf340RecursiveNoHelper(ref) + 1; // recursive call
+    } else {                                 // item doesn't match
+        curPtr = curPtr->getNext();          // advance curPtr to next node
+        return getFrequencyOf340RecursiveNoHelper(ref);     // recursive call
     }
-
-    if (curPtr == nullptr) {
-        curPtr = headPtr;   // point back to the head
-    }
-
-    return 0;
 }
 
 template<typename ItemType>
@@ -126,8 +124,8 @@ ItemType LinkedBag<ItemType>::removeRandom340() {
         int n = rand() % itemCount + 1; // generate random number between 0 and itemCount
 
         int count = 1;
-        Node<ItemType>* curPtr = headPtr;
-        while (count < (n-1)) {
+        Node<ItemType> *curPtr = headPtr;
+        while (count < (n - 1)) {
             count++;
             curPtr = curPtr->getNext(); // advance the pointer to the next node
         }
@@ -135,7 +133,23 @@ ItemType LinkedBag<ItemType>::removeRandom340() {
         remove(i);                   // call remove and pass in data item
         return i;
     }
-
 }
+
+//        srand(time(NULL));
+//        int randomIndex = rand() % itemCount + 1; // Generates a random value between 1 and the number of items in the bag
+//        Node<ItemType>* targetNode = headPtr;
+//
+//        // Counts until the proper node is found based on the random value
+//        for(int i = 1; i < randomIndex; i++){
+//
+//            targetNode = targetNode->getNext();
+//        }
+//
+//        ItemType deletedItem = targetNode->getItem();
+//
+//    remove(deletedItem);
+//    return deletedItem;
+
+
 
 
